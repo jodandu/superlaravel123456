@@ -15,3 +15,30 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('primera/pagina',function(){
+    return 'Primera';
+});
+
+Route::get('segunda/pagina', function(){
+    return 'Segunda';
+});
+
+Route::get('/', function(){
+    return 'Has llegado a la raiz de Super laravel';
+});
+
+/*Route::get('/libros', function(){
+    return 'Indice de libros';
+});*/
+
+/*Route::get('/libros/{genero}', function($genero){
+    return "Libros en la categoria de {$genero}. ";
+});*/
+
+//Quitando requisito de paremetro
+
+Route::get('/libros/{genero?}', function($genero = null){
+    if($genero == null) return 'Indice de libros';
+    return "Libros en la categoria {$genero}";
+});
